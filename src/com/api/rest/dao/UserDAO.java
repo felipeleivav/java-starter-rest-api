@@ -95,7 +95,7 @@ public class UserDAO extends BaseDAO {
 		boolean res = false;
 		try {
 			String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(15));
-			PreparedStatement stmt = createQuery("INSERT INTO \"user\" (username,password,email) VALUES(?,?,?,?)");
+			PreparedStatement stmt = createQuery("INSERT INTO \"user\" (username,password,email) VALUES(?,?,?)");
 			stmt.setString(1, user.getUsername());
 			stmt.setString(2, hashed);
 			stmt.setString(3, user.getEmail());
